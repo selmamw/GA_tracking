@@ -1,7 +1,5 @@
 GA_tracking
 
-
-
-using code by https://github.com/broofa/node-uuid to generate UUID version 4
+creating uuid4 for browser and timestamp per hit in ms
 
 see also http://daynebatten.com/2015/07/raw-data-google-analytics/ as tutorial
