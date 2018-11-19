@@ -4,7 +4,7 @@ function browser_id() {
   	// Set a cookie so we won't override the UUID we just set
     document.cookie = 'browser_uuid_set=1; expires=Fri, 01 Jan 2100 12:00:00 UTC; path=/';
 
-  	function uuidv4() {
+  	uuidv4 = function() {
    	 	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
      		 var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
       	return v.toString(16);
