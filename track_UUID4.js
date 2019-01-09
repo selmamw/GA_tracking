@@ -1,5 +1,15 @@
 // Create custom dimension in Google Analytics using analytics.js
+<<<<<<< HEAD
+// Import jQuery library
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+// Add customized code
+=======
 
+/* Bind UUID generator script */
+<script src="https://wzrd.in/standalone/uuid@latest">
+</script>
+
+>>>>>>> parent of 079267f... Using own UUID function in script
 <script type="text/javascript">
 
 /* Bind Google Analytics to Website -- do not use graphical user interface of CMS for this purpose */
@@ -8,22 +18,15 @@
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-/* Bind your Google Analytics Property to the website */
-ga('create', 'UA-XXXXXXXX-Y', 'auto');
+/* Bind your Google Analytics Property to the website*/
+ga('create', 'UA-XXXXX-Y', 'auto');
 
-/*create UUID version 4 */
-function uuidv4() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
 
 /* If the browser_id hasn't already been set... */
 if (document.cookie.indexOf('browser_uuid_set=1') == -1) {
 
         /* Generate a UUID, and assign it to the browser_id custom dimension */
-        ga('set', 'dimension1', uuidv4());
+        ga('set', 'dimension1', uuid.v4());
 
         /* Set a cookie so we won't override the UUID we just set */
         document.cookie = 'browser_uuid_set=1; expires=Fri, 01 Jan 2100 12:00:00 UTC; path=/';
@@ -37,6 +40,21 @@ ga('set', 'dimension2', time_ms);
 
 /* Send data to Google */
 ga('send', 'pageview');
+
+
+/* Track clicks on email addresses */
+jQuery(function($){
+
+// mailto function
+  $('a[href^="mailto:"]').click(function(){
+
+  ga('send','event','mailto','click','email clicked');
+
+  return true;
+
+  });
+
+});
 
 
 </script>
